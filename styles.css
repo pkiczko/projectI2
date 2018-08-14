@@ -10,6 +10,8 @@ body {
 
 }
 header {
+
+      padding-top: 15px;
   background-color: rgb(64, 64, 64);
   display: grid;
   grid-area: header;
@@ -40,7 +42,9 @@ img.icon{
   background-color: #555;
   border-radius: 50%;
 }
-a.nav {width: 155px;
+a.nav {
+  overflow-x: hidden;
+  width: 180px;
   height: 300px;
   display:grid;
   justify-content: center;
@@ -56,13 +60,16 @@ a.nav {width: 155px;
 	font-weight:300;
 	color:#FFFFFF;
 	text-align:center;
-	transition: all 0.2s;
+	transition: all 0.4s;
 }
 a.nav:hover{
 	color:#000000;
 	background-color:#FFFFFF;
+
+    box-shadow: 10px 10px 10px 10px #888888;
 }
 a.nav:hover:before {
+
     content: '';
     position: absolute;
     border-style: solid;
@@ -76,17 +83,22 @@ a.nav:hover:before {
 
 }
 .logo_text {
+    overflow-x: hidden;
     color: white;
     margin-bottom: 6%;
     margin-right: 3%;
     text-align: left;
     padding: 10px;
+    z-index: 1;
+    transition: all 0.5s;
     }
 
 
 .logo_text:hover {
-    background-color: lightGray;
-    border-radius: 5%;}
+    background: linear-gradient(lightblue , #AADDFF);
+    border-radius: 5%;
+    color: black;
+    box-shadow: 10px 10px 5px 5px black;}
 nav hr{
   grid-column: 1/5;
   margin-top: 0;
@@ -102,17 +114,16 @@ nav hr{
 div.bluebar{
   display: grid;
   grid-template-columns: 65% 30%;
-  /*-webkit-clip-path: polygon(440px 65px,155px 65px,140px 80px,140px 40px,440px 40px);
-  // good try but pointless, this way it won't be responsive*/
   width: 83%;
   height: 40px;
   padding-left: 5%;
   padding-bottom: 15px;
-  background-color: lightblue;
+  background: linear-gradient(to right, lightblue , #AADDFF);
   grid-column: 1/3;
 
   margin-left: 5%;
   margin-bottom: 0;
+  z-index: 0;
 }
 div.bluebar:before {
   content: '';
@@ -122,7 +133,7 @@ div.bluebar:before {
 	height: 0;
 	border-top: 90px solid lightblue;
 	border-right: 70px solid transparent;
-  z-index: 0;
+  z-index: -1;
 }
 .contact{
   height: 50%;
@@ -131,6 +142,11 @@ div.bluebar:before {
   margin-top: 12px;
 
       }
+@media (max-width: 800px) {
+  nav {grid-template-columns:  repeat(3, minmax(140px, 250px));}
+  nav hr{
+    grid-column: 1/4;}
+}
 @media (max-width: 650px) {
   nav {
     grid-template-columns: repeat(2, minmax(150px, 350px));
@@ -170,19 +186,45 @@ article {
   grid-area: content;
   grid-template-columns: 65% 35%;
 }
-
+.mask_box {height:}
 h4 {
     grid-column: 1/3;
-    text-align: center;
-    margin-top: 15px;
-    border:2px;
-    background:  url('./assets/Border-BG.png') repeat;
-    background-size: 70px 70px;
-    height: 15px;
-  }
+    height: 30px;
+
+    overflow-x: hidden;
+
+}
+h4 {
+  text-align: center;
+}
+h4 span {
+  display: inline-block;
+  position: relative;
+}
+h4 span:before,
+h4 span:after {
+  background:  url('./assets/Border-BG.png') repeat;
+  background-size: 70px 70px;
+  content: "";
+  position: absolute;
+  height: 15px;
+  top: 0;
+  width: 40vw;
+}
+h4 span:before {
+  right: 100%;
+  margin-right: 15px;
+}
+h4 span:after {
+  left: 100%;
+  margin-left: 15px;
+}
+
+
 /* RECENT*/
 .rimg {width: 114%;}
 .recent {
+  overflow-x: hidden;
   display: grid;
   place-items:center;
   align-content: center;
@@ -195,6 +237,8 @@ h4 {
 
 
 .rdiv {display:grid;
+
+    box-shadow: 10px 10px 10px 10px #888888;
       width: 180px;
       margin-left: 20px;
       margin-right: 20px;
@@ -204,7 +248,7 @@ h4 {
       padding-bottom: 100;
       margin-bottom: 10%;
       justify-items: center;
-    background-color: white;}
+      background-color: white;}
     .rdiv:before {
         content: '';
         position: absolute;
@@ -250,6 +294,7 @@ h4.recen {grid-column: 1/2;}
     h4.testi {grid-column: 1/2;}
 }
 .tdiv {
+  overflow-x: hidden;
   margin-left: 20px;
   margin-right: 20px;
   height: 170px;
@@ -258,6 +303,7 @@ h4.recen {grid-column: 1/2;}
   margin-bottom: 15%;
   justify-items: center;
   background-color: white;
+  transition: all 0.2s;
 }
 
 .tdiv:before {
@@ -271,7 +317,7 @@ h4.recen {grid-column: 1/2;}
 
 }
 .tdiv:hover {
-    background-color: lightGray;
+    box-shadow: 10px 10px 10px 10px #888888;
   }
     .tdiv:hover:before {
         content: '';
@@ -280,7 +326,7 @@ h4.recen {grid-column: 1/2;}
         margin-top: 170px;
         margin-left: -11px;
         border-width: 0 0 30px 30px;
-        border-color: transparent transparent transparent lightGray;
+        border-color: transparent transparent transparent white;
 }
 footer {
   padding-right: 20px;
@@ -291,15 +337,18 @@ footer {
   grid-template-columns: 25% 25% 25% 25%;
   background-color: rgb(64, 64, 64);
   color: white;
+  text-shadow: 2px 4px 2px #888888;
 
 }
-footer p{color: gray;}
+footer p{color: gray;
+          text-shadow: none;}
 footer hr{
   border: 2px 2px;
   border-radius: 55%;
   height: 2px;
 }
 div.bottomz {
+  text-shadow: none;
   padding-top: 40px;
   padding-bottom: 20px;
   display: grid;
@@ -323,12 +372,77 @@ div.flicker {
     grid-column: 1/5;
     }
 
+.show_title, .show_title2{
+  position: relative;
+  show-tooltip:none;
+}
+.show_title:after, .show_title2:after{
+    background: lightgray;
+
+    color: #333;
+    content: attr(title);
+    font-size: 16px;
+    text-shadow: none;
+    font-weight: 800;
+    padding: 5px 15px;
+    position: absolute;
+    z-index: 99;
+    width: 80px;
+    opacity: 0; /* define initial transition property */
+    transition: opacity 1s;
+          }
+
+    .show_title:after{
+          bottom: 55px;
+          left: 30px;
+        }
+.show_title:hover:after, .show_title2:hover:after{
+    opacity: 1;
+
+}
+.show_title:before {
+  content: ' ';
+  position: absolute;
+  width: 0;
+  height: 0;
+  left: 30px;
+  right: auto;
+  top: 9px;
+  bottom: -10px;
+  border-top: 12px solid lightgray;
+  border-right: 12px solid transparent;
+  z-index: 99;
+  opacity: 0; /* define initial transition property */
+  transition: opacity 1s;
+}
+.show_title:hover:before, .show_title2:hover:before{opacity:1;}
+.show_title2:before {
+  content: ' ';
+  position: absolute;
+  width: 0;
+  height: 0;
+  left: 30px;
+  right: auto;
+  top: 5px;
+  bottom: -10px;
+  border-top: 12px solid lightgray;
+  border-left: 12px solid transparent;
+  z-index: 99;
+  opacity: 0; /* define initial transition property */
+  transition: opacity 1s;
+}
+.show_title2:after {
+  right: 35px;
+  bottom: 75px;
+                  }
+a.fa {pointer-events: visible;}
 .fa {
     color: white;
     padding: 20px;}
 .fa:hover{
-    opacity: 0.5;}
-.item1:hover {opacity: 0.5;}
+    text-shadow: 2px 2px #888888;
+
+    }
 span.flicker:first-of-type {
         margin-left: 0;
     }
@@ -387,6 +501,7 @@ div.tabs {
 }
 div.tabs {background-color: rgb(239,239,239);}
 section.tabs {
+  box-shadow: 20px 20px 10px 10px #888888;
   grid-column: 1/3;
   display: none;
   padding: 20px 0 0;
@@ -399,6 +514,7 @@ input {
 }
 
 label {
+  box-shadow: 20px 20px 10px 10px #888888;
   display: inline-block;
   margin: 0 0 -1px;
   padding: 15px 25px;
