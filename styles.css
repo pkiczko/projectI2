@@ -42,7 +42,7 @@ img.icon{
   background-color: #555;
   border-radius: 50%;
 }
-a.nav {
+.nav {
   overflow-x: hidden;
   width: 180px;
   height: 300px;
@@ -62,13 +62,13 @@ a.nav {
 	text-align:center;
 	transition: all 0.4s;
 }
-a.nav:hover{
+.nav:hover{
 	color:#000000;
 	background-color:#FFFFFF;
 
     box-shadow: 10px 10px 10px 10px #888888;
 }
-a.nav:hover:before {
+.nav:hover:before {
 
     content: '';
     position: absolute;
