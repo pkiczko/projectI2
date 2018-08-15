@@ -42,8 +42,7 @@ img.icon{
   background-color: #555;
   border-radius: 50%;
 }
-.nav button {visibility: visible;}
-.nav {
+a.nav {
   overflow-x: hidden;
   width: 180px;
   height: 300px;
@@ -63,13 +62,13 @@ img.icon{
 	text-align:center;
 	transition: all 0.4s;
 }
-.nav:hover{
+a.nav:hover{
 	color:#000000;
 	background-color:#FFFFFF;
 
     box-shadow: 10px 10px 10px 10px #888888;
 }
-.nav:hover:before {
+a.nav:hover:before {
 
     content: '';
     position: absolute;
@@ -80,7 +79,6 @@ img.icon{
     border-color: transparent transparent transparent white;
 
 }
-.nav:hover button {visibility: hidden;}
 .icon{
 
 }
